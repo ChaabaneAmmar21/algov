@@ -1,0 +1,34 @@
+ALGORITHM algorithm_name
+VAR
+   tab2,tab1 : ARRAY_OF INTEGER[];
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   nocc,i,sum:INTEGER;
+   t: ARRAY_OF INTEGER[];
+BEGIN
+  FOR i FROM 0 TO tab1.Length-1  DO
+
+    htab.insert(tab1[i],1);
+  END_FOR
+  FOR i FROM 0  TO tab2.Length-1  DO
+    IF (htab.lookup(tab2[i]):=true) THEN
+      nbocc:=htab.get(tab2[i])+1
+      htab.insert(tab2[i],nbocc)
+      ELSE
+      htab.insert(tab2[i],i)
+        
+      END_IF
+  
+  END_FOR
+  t:=htab.getkeys();
+  FOR i FROM 0 TO t.Length-1 STEP step  DO
+  IF (htab.get(t[i]=1)) THEN
+
+   sumd+=t[i]
+  ELSE
+   sumk+=t[i]*2
+  END_IF
+  END_FOR
+
+
+
+END
